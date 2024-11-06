@@ -56,7 +56,7 @@ segmentWidth = 15;
 
 % مدت زمان‌های آزمایش
 ts_values = [400, 500, 700, 1100, 1900];
-ts2_multipliers = [0.02, 0.04, 0.06, 0.08];
+ts2_multipliers = [0.06, 0.12, 0.24, 0.48];
 n_trials = 40;
 feedback_time = 0.8;
 
