@@ -101,8 +101,11 @@ for session = 1:6
 
             % رسم پره‌ها
             Screen('FillArc', window, color, [xCenter-wheelOuterRadius, yCenter-wheelOuterRadius, xCenter+wheelOuterRadius, yCenter+wheelOuterRadius], angles(i), segmentWidth);
-            Screen('FillArc', window, [128, 128, 128], [xCenter-wheelInnerRadius, yCenter-wheelInnerRadius, xCenter+wheelInnerRadius, yCenter+wheelInnerRadius], angles(i), segmentWidth);
+            Screen('FillOval', window, [128, 128, 128], [xCenter-wheelInnerRadius, yCenter-wheelInnerRadius, xCenter+wheelInnerRadius, yCenter+wheelInnerRadius]);
             Screen('FillOval', window, fixationColor, [xCenter - fixationDiameter_pixels/2, yCenter - fixationDiameter_pixels/2, xCenter + fixationDiameter_pixels/2, yCenter + fixationDiameter_pixels/2]);
+            Screen('FillOval', window, targetColor, [leftTargetPos(1) - leftTargetDiameter_pixels/2, leftTargetPos(2) - leftTargetDiameter_pixels/2, leftTargetPos(1) + leftTargetDiameter_pixels/2, leftTargetPos(2) + leftTargetDiameter_pixels/2]);
+            Screen('FillOval', window, targetColor, [rightTargetPos(1) - rightTargetDiameter_pixels/2, rightTargetPos(2) - rightTargetDiameter_pixels/2, rightTargetPos(1) + rightTargetDiameter_pixels/2, rightTargetPos(2) + rightTargetDiameter_pixels/2]);
+
         end
         Screen('Flip', window);
         WaitSecs(ts1 / 1000);  % نمایش به مدت ts1
@@ -121,8 +124,11 @@ for session = 1:6
 
             % رسم پره‌ها
             Screen('FillArc', window, color, [xCenter-wheelOuterRadius, yCenter-wheelOuterRadius, xCenter+wheelOuterRadius, yCenter+wheelOuterRadius], angles(i), segmentWidth);
-            Screen('FillArc', window, [128, 128, 128], [xCenter-wheelInnerRadius, yCenter-wheelInnerRadius, xCenter+wheelInnerRadius, yCenter+wheelInnerRadius], angles(i), segmentWidth);
+            Screen('FillOval', window, [128, 128, 128], [xCenter-wheelInnerRadius, yCenter-wheelInnerRadius, xCenter+wheelInnerRadius, yCenter+wheelInnerRadius]);
             Screen('FillOval', window, fixationColor, [xCenter - fixationDiameter_pixels/2, yCenter - fixationDiameter_pixels/2, xCenter + fixationDiameter_pixels/2, yCenter + fixationDiameter_pixels/2]);
+            Screen('FillOval', window, targetColor, [leftTargetPos(1) - leftTargetDiameter_pixels/2, leftTargetPos(2) - leftTargetDiameter_pixels/2, leftTargetPos(1) + leftTargetDiameter_pixels/2, leftTargetPos(2) + leftTargetDiameter_pixels/2]);
+            Screen('FillOval', window, targetColor, [rightTargetPos(1) - rightTargetDiameter_pixels/2, rightTargetPos(2) - rightTargetDiameter_pixels/2, rightTargetPos(1) + rightTargetDiameter_pixels/2, rightTargetPos(2) + rightTargetDiameter_pixels/2]);
+
         end
         Screen('Flip', window);
         WaitSecs(ts2 / 1000);  % نمایش به مدت ts2
