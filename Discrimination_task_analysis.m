@@ -21,30 +21,34 @@ grid on;
 legend('Data Points', 'Regression Line');
 hold off;
 
+%Accuracy
+% Load data
+data = readtable('temporal_discrimination_task.csv');
 
-% Calculate Variability (standard deviation of ts2) for each unique ts1
-variability = zeros(size(unique_ts1));
+% Unique values of ts1
+unique_ts1 = unique(data.ts1);
 
+% Array to store accuracy rate for each ts1
+accuracy_rate = zeros(size(unique_ts1));
+
+% Loop over each unique ts1 to calculate accuracy
 for i = 1:length(unique_ts1)
     ts1_value = unique_ts1(i);
-    % Extract subset of data for this ts1 value
     subset = data(data.ts1 == ts1_value, :);
     
-    % Calculate standard deviation (variability)
-    variability(i) = std(subset.ts2);
+    % Calculate accuracy rate
+    correct_responses = sum(strcmp(subset.User_Response, subset.Correct_Response));
+    total_responses = height(subset);
+    accuracy_rate(i) = (correct_responses / total_responses) * 100; % Convert to percentage
 end
 
-% Plot Variability vs ts1
+% Plot Accuracy Rate vs ts1
 figure;
-plot(unique_ts1, variability, '-o');
+plot(unique_ts1, accuracy_rate, '-o');
 xlabel('Interval (ts1) (ms)');
-ylabel('Variability (ms)');
-title('Variability as a Function of Interval Duration');
+ylabel('Accuracy Rate (%)');
+title('Accuracy Rate as a Function of Interval Duration');
 grid on;
-
-% Save the variability plot as PDF
-set(gcf, 'PaperPositionMode', 'auto');
-print(gcf, 'Variability_Plot', '-dpdf', '-fillpage');
 
 
 % Load the data
