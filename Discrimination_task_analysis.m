@@ -1,27 +1,4 @@
-% بارگذاری داده‌ها
-data = readtable('temporal_discrimination_task.csv');  
-ts1 = data.ts1;
-ts2 = data.ts2;
-
-% رسم نمودار پراکندگی
-figure;
-scatter(ts1, ts2, 'filled', 'MarkerFaceAlpha', 0.6);
-hold on;
-
-% محاسبه و رسم خط رگرسیون
-p = polyfit(ts1, ts2, 1); % به دست آوردن ضرایب خط رگرسیون خطی
-yfit = polyval(p, ts1); % محاسبه مقادیر برازش شده
-plot(ts1, yfit, '-r', 'LineWidth', 1.5); % رسم خط رگرسیون
-
-% تنظیمات نمودار
-title('Scatter Plot of ts1 vs. ts2 with Regression Line');
-xlabel('Interval ts1 (ms)');
-ylabel('Interval ts2 (ms)');
-grid on;
-legend('Data Points', 'Regression Line');
-hold off;
-
-%Accuracy
+% Accuracy Rate Calculation
 % Load data
 data = readtable('temporal_discrimination_task.csv');
 
@@ -50,7 +27,7 @@ ylabel('Accuracy Rate (%)');
 title('Accuracy Rate as a Function of Interval Duration');
 grid on;
 
-
+% Mean Bias Calculation
 % Load the data
 data = readtable('temporal_discrimination_task.csv');
 
@@ -77,5 +54,3 @@ xlabel('Interval (ts1) (ms)');
 ylabel('Mean Bias (ms)');
 title('Mean Bias as a Function of Interval Duration');
 grid on;
-
-
